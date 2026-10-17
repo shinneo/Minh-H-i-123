@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="info-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#info-bg)" rx="16" />
+  <rect x="20" y="20" width="560" height="710" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" rx="12" />
+  
+  <text x="40" y="70" fill="#38bdf8" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="800">INFOGRAPHIC CỦNG CỐ KIẾN THỨC</text>
+  <text x="40" y="100" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">SƠ ĐỒ TƯ DUY KHẢO SÁT & VẼ ĐỒ THỊ HÀM SỐ</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(40, 130)">
+    <rect width="520" height="110" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <circle cx="35" cy="40" r="18" fill="#3b82f6" />
+    <text x="35" y="46" fill="#fff" font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">1</text>
+    <text x="70" y="38" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="700">TẬP XÁC ĐỊNH & ĐẠO HÀM</text>
+    <text x="70" y="65" fill="#94a3b8" font-family="sans-serif" font-size="13">Tìm TXĐ D, tính f'(x), giải f'(x) = 0 tìm nghiệm x_i thuộc D</text>
+    <text x="70" y="90" fill="#38bdf8" font-family="monospace" font-size="13">f'(x) &gt; 0 =&gt; Đồng biến | f'(x) &lt; 0 =&gt; Nghịch biến</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(40, 260)">
+    <rect width="520" height="120" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <circle cx="35" cy="40" r="18" fill="#10b981" />
+    <text x="35" y="46" fill="#fff" font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">2</text>
+    <text x="70" y="38" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="700">CỰC TRỊ & GTLN - GTNN</text>
+    <text x="70" y="65" fill="#94a3b8" font-family="sans-serif" font-size="13">Đổi dấu (+) sang (-) qua x_0 =&gt; Cực đại</text>
+    <text x="70" y="88" fill="#94a3b8" font-family="sans-serif" font-size="13">Đổi dấu (-) sang (+) qua x_0 =&gt; Cực tiểu</text>
+    <text x="70" y="108" fill="#34d399" font-family="monospace" font-size="12">min/max [a;b]: So sánh f(a), f(b), f(x_k)</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(40, 400)">
+    <rect width="520" height="140" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <circle cx="35" cy="40" r="18" fill="#f59e0b" />
+    <text x="35" y="46" fill="#fff" font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">3</text>
+    <text x="70" y="38" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="700">ĐƯỜNG TIỆM CẬN (TCN, TCD, TCX)</text>
+    <text x="70" y="65" fill="#e2e8f0" font-family="monospace" font-size="13">lim(x-&gt;+-oo) f(x) = y_0 =&gt; Tiệm cận ngang y = y_0</text>
+    <text x="70" y="90" fill="#e2e8f0" font-family="monospace" font-size="13">lim(x-&gt;x_0) f(x) = +-oo =&gt; Tiệm cận đứng x = x_0</text>
+    <text x="70" y="115" fill="#fbbf24" font-family="monospace" font-size="13">f(x) = ax + b + g(x) với lim g(x)=0 =&gt; TC Xiên y = ax+b</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(40, 560)">
+    <rect width="520" height="130" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <circle cx="35" cy="40" r="18" fill="#8b5cf6" />
+    <text x="35" y="46" fill="#fff" font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">4</text>
+    <text x="70" y="38" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="700">TÂM ĐỐI XỨNG & ĐIỂM UỐN</text>
+    <text x="70" y="65" fill="#94a3b8" font-family="sans-serif" font-size="13">Điểm uốn đồ thị bậc ba: I(x_0; y_0) với f''(x_0) = 0</text>
+    <text x="70" y="90" fill="#c084fc" font-family="sans-serif" font-size="13">I là tâm đối xứng của hàm đa thức bậc ba và phân thức hữu tỉ</text>
+  </g>
+</svg>

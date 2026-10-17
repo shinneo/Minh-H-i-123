@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Học Tập Toán 12 - Chuẩn GDPT 2025</title>
+  <meta name="description" content="Website học tập Toán 12 theo chương trình GDPT mới: Củng cố lý thuyết, Trắc nghiệm 4 đáp án, Trắc nghiệm Đúng/Sai, Trả lời ngắn và Đề thi 60 phút có chấm điểm chi tiết." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- KaTeX via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .math-font { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-200 antialiased">
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
+      <!-- Zone 1: Brand Wordmark -->
+      <a href="#" onclick="showHomeView(); return false;" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold">
+          ∑
+        </div>
+        <div>
+          <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-tight block">Toán 12</span>
+          <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 block">Chuẩn GDPT 2025</span>
+        </div>
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#" onclick="showHomeView(); return false;" class="hover:text-indigo-600 transition-colors">Trang Chủ</a>
+        <a href="#chuong-hoc" onclick="showHomeView(); return false;" class="hover:text-indigo-600 transition-colors">6 Chương Học</a>
+        <a href="#de-on-tap" onclick="openChapterDetail(1, 'exam'); return false;" class="hover:text-indigo-600 transition-colors">Đề Ôn Tập 60P</a>
+        <a href="#thang-diem" class="hover:text-indigo-600 transition-colors">Thang Điểm 2025</a>
+      </nav>
+
+      <!-- Zone 3: CTA & Dark Mode Toggle -->
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Chuyển chế độ sáng/tối">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button onclick="openChapterDetail(1, 'exam')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-lg shadow-sm">
+          Thi Thử 60P
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= VIEW 1: TRANG MỞ ĐẦU (SLIDE 1) ================= -->
+  <div id="homeView" class="block">
+    <!-- HERO SECTION (Slide 1) -->
+    <section class="relative overflow-hidden pt-10 pb-16 border-b border-slate-200 dark:border-slate-800">
+      <div class="absolute inset-0 z-0 opacity-15 dark:opacity-25 pointer-events-none">
+        <img src="/assets/s1_trangmo_01.png" alt="Background Hero 16:9 Không gian Oxyz và giải tích" class="w-full h-full object-cover">
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-3">
+          CHƯƠNG TRÌNH TOÁN 12 MỚI · BỘ GD&amp;ĐT 2025
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
+          Website Học Tập Toán 12
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          Hệ thống củng cố lý thuyết, trắc nghiệm 4 đáp án kiểm tra tức thì, đúng/sai 4 ý, trả lời ngắn và đề thi 60 phút có chấm điểm trên thang 10.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <button onclick="openChapterDetail(1, 'theory')" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm rounded-xl shadow-md transition-all">
+            Học Ngay Chương 1 →
+          </button>
+          <a href="#chuong-hoc" class="px-6 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-semibold text-sm rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm hover:bg-slate-50 transition-all">
+            Xem Tất Cả 6 Chương
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTERS GRID (Slide 1) -->
+    <section id="chuong-hoc" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <div class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">MỤC LỤC CHƯƠNG TRÌNH</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Các Chương Học Trong Toán 12</h2>
+          <p class="text-xs text-slate-500 mt-1">Các chương sẽ là các ô có thể bấm chọn để vào học chi tiết</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Chapter 1 -->
+        <div onclick="openChapterDetail(1, 'theory')" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-slate-700 p-2 shrink-0">
+                <img src="/assets/s1_trangmo_02.svg" alt="Icon Card Chương học 1:1" class="w-full h-full object-contain">
+              </div>
+              <div class="ml-3">
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">CHƯƠNG I</span>
+                <span class="text-xs text-slate-400 ml-1">· Học Kỳ 1</span>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors">
+                  Ứng Dụng Đạo Hàm Khảo Sát Hàm Số
+                </h3>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Tính đơn điệu, cực trị, GTLN-GTNN, đường tiệm cận và đồ thị hàm số.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+            <span>15 Trắc nghiệm · 5 Đúng/Sai</span>
+            <span class="font-bold text-indigo-600">Vào học →</span>
+          </div>
+        </div>
+
+        <!-- Chapter 2 -->
+        <div onclick="openChapterDetail(2, 'theory')" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-slate-700 p-2 shrink-0">
+                <img src="/assets/s1_trangmo_02.svg" alt="Icon Card Chương học 1:1" class="w-full h-full object-contain">
+              </div>
+              <div class="ml-3">
+                <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">CHƯƠNG II</span>
+                <span class="text-xs text-slate-400 ml-1">· Học Kỳ 1</span>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors">
+                  Tọa Độ Của Vectơ Trong Không Gian
+                </h3>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Hệ trục tọa độ Oxyz, biểu thức tọa độ của các phép toán vectơ, tích có hướng.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+            <span>15 Trắc nghiệm · 5 Đúng/Sai</span>
+            <span class="font-bold text-emerald-600">Vào học →</span>
+          </div>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div onclick="openChapterDetail(3, 'theory')" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-amber-500 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-slate-700 p-2 shrink-0">
+                <img src="/assets/s1_trangmo_02.svg" alt="Icon Card Chương học 1:1" class="w-full h-full object-contain">
+              </div>
+              <div class="ml-3">
+                <span class="text-xs font-bold text-amber-600 dark:text-amber-400">CHƯƠNG III</span>
+                <span class="text-xs text-slate-400 ml-1">· Học Kỳ 1</span>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">
+                  Số Đặc Trưng Đo Độ Phân Tán
+                </h3>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Khoảng biến thiên, khoảng tứ phân vị, phương sai và độ lệch chuẩn mẫu ghép nhóm.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+            <span>15 Trắc nghiệm · 5 Đúng/Sai</span>
+            <span class="font-bold text-amber-600">Vào học →</span>
+          </div>
+        </div>
+
+        <!-- Chapter 4 -->
+        <div onclick="openChapterDetail(4, 'theory')" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-cyan-500 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-slate-700 p-2 shrink-0">
+                <img src="/assets/s1_trangmo_02.svg" alt="Icon Card Chương học 1:1" class="w-full h-full object-contain">
+              </div>
+              <div class="ml-3">
+                <span class="text-xs font-bold text-cyan-600 dark:text-cyan-400">CHƯƠNG IV</span>
+                <span class="text-xs text-slate-400 ml-1">· Học Kỳ 2</span>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 transition-colors">
+                  Nguyên Hàm &amp; Tích Phân
+                </h3>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Đổi biến, từng phần, diện tích hình phẳng và thể tích khối tròn xoay.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+            <span>15 Trắc nghiệm · 5 Đúng/Sai</span>
+            <span class="font-bold text-cyan-600">Vào học →</span>
+          </div>
+        </div>
+
+        <!-- Chapter 5 -->
+        <div onclick="openChapterDetail(5, 'theory')" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-purple-500 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-slate-700 p-2 shrink-0">
+                <img src="/assets/s1_trangmo_02.svg" alt="Icon Card Chương học 1:1" class="w-full h-full object-contain">
+              </div>
+              <div class="ml-3">
+                <span class="text-xs font-bold text-purple-600 dark:text-purple-400">CHƯƠNG V</span>
+                <span class="text-xs text-slate-400 ml-1">· Học Kỳ 2</span>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-600 transition-colors">
+                  Phương Pháp Tọa Độ Không Gian
+                </h3>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Phương trình mặt phẳng, đường thẳng, mặt cầu và bài toán góc, khoảng cách.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+            <span>15 Trắc nghiệm · 5 Đúng/Sai</span>
+            <span class="font-bold text-purple-600">Vào học →</span>
+          </div>
+        </div>
+
+        <!-- Chapter 6 -->
+        <div onclick="openChapterDetail(6, 'theory')" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-rose-500 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-rose-50 dark:bg-slate-700 p-2 shrink-0">
+                <img src="/assets/s1_trangmo_02.svg" alt="Icon Card Chương học 1:1" class="w-full h-full object-contain">
+              </div>
+              <div class="ml-3">
+                <span class="text-xs font-bold text-rose-600 dark:text-rose-400">CHƯƠNG VI</span>
+                <span class="text-xs text-slate-400 ml-1">· Học Kỳ 2</span>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-rose-600 transition-colors">
+                  Xác Suất Có Điều Kiện
+                </h3>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Quy tắc nhân, sơ đồ hình cây, công thức xác suất toàn phần và công thức Bayes.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+            <span>15 Trắc nghiệm · 5 Đúng/Sai</span>
+            <span class="font-bold text-rose-600">Vào học →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= VIEW 2: GIAO DIỆN CHI TIẾT CHƯƠNG HỌC (SLIDES 2 - 6) ================= -->
+  <div id="chapterDetailView" class="hidden py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-xs text-slate-500 mb-6">
+      <button onclick="showHomeView()" class="hover:text-indigo-600 font-semibold cursor-pointer">← Về Trang Chủ</button>
+      <span>·</span>
+      <span id="detailChapterBadge" class="font-bold text-indigo-600">CHƯƠNG I</span>
+    </div>
+
+    <!-- Chapter Header -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 mb-8 shadow-xs">
+      <h1 id="detailChapterTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+        Ứng Dụng Đạo Hàm Khảo Sát Hàm Số
+      </h1>
+      <p id="detailChapterDesc" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+        Cấu trúc chi tiết gồm 5 phân hệ: Củng cố lý thuyết, Trắc nghiệm 4 đáp án, Đúng/Sai, Trả lời ngắn và Đề kiểm tra.
+      </p>
+    </div>
+
+    <!-- 5 Sidebar/Tabs (Slide 2 to Slide 6) -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 dark:border-slate-800 mb-8">
+      <button onclick="switchTab('theory')" id="tabBtn_theory" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all bg-indigo-600 text-white border-indigo-600">
+        1. Củng Cố Kiến Thức (Slide 2)
+      </button>
+      <button onclick="switchTab('mc')" id="tabBtn_mc" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700">
+        2. Trắc Nghiệm 4 Đáp Án (Slide 3)
+      </button>
+      <button onclick="switchTab('tf')" id="tabBtn_tf" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700">
+        3. Bài Tập Đúng / Sai (Slide 4)
+      </button>
+      <button onclick="switchTab('sa')" id="tabBtn_sa" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700">
+        4. Trả Lời Ngắn (Slide 5)
+      </button>
+      <button onclick="switchTab('exam')" id="tabBtn_exam" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700">
+        5. Đề Ôn Tập Chương (Slide 6)
+      </button>
+    </div>
+
+    <!-- TAB 1: CỦNG CỐ KIẾN THỨC (Slide 2) -->
+    <div id="tabContent_theory" class="tab-pane block space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Lí Thuyết Cần Nắm &amp; Mở Rộng Thêm</h3>
+            <div class="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+              <p>• <strong>Tính đơn điệu:</strong> Hàm số $y = f(x)$ đồng biến trên khoảng $(a;b) \iff f'(x) \ge 0, \forall x \in (a;b)$ (dấu bằng chỉ tại hữu hạn điểm).</p>
+              <p>• <strong>Cực trị hàm số:</strong> Đổi dấu (+) sang (-) qua $x_0 \implies$ Cực đại; đổi dấu (-) sang (+) qua $x_0 \implies$ Cực tiểu.</p>
+              <p>• <strong>Tiệm cận:</strong> Tiệm cận đứng $x = x_0$ khi $\lim_{x \to x_0} f(x) = \pm\infty$; Tiệm cận xiên $y = ax + b$ khi $\lim_{x \to \pm\infty} [f(x) - (ax+b)] = 0$.</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Bảng Công Thức Cần Ghi Nhớ (KaTeX)</h3>
+            <div class="space-y-3 text-xs">
+              <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border">
+                <div class="font-semibold text-slate-500">Đạo hàm cực trị cấp 2:</div>
+                <div class="text-indigo-600 dark:text-indigo-400 py-1 font-mono">$$f'(x_0) = 0, \ f''(x_0) < 0 \implies \text{Cực đại}; \quad f''(x_0) > 0 \implies \text{Cực tiểu}$$</div>
+              </div>
+              <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border">
+                <div class="font-semibold text-slate-500">Tiệm cận xiên phân thức:</div>
+                <div class="text-indigo-600 dark:text-indigo-400 py-1 font-mono">$$y = \frac{ax^2+bx+c}{px+q} = Ax + B + \frac{R}{px+q} \implies y = Ax + B$$</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700">
+            <div class="text-xs font-bold text-slate-400 mb-2 uppercase">Infographic Lý thuyết (4:5)</div>
+            <img src="/assets/s2_cungko_01.jpg" alt="Infographic Lý thuyết 4:5" class="w-full rounded-xl object-cover border">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: TRẮC NGHIỆM 4 ĐÁP ÁN (Slide 3) -->
+    <div id="tabContent_mc" class="tab-pane hidden space-y-6">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/assets/s3_tracnghiem_01.svg" alt="Icon Trắc nghiệm 1:1" class="w-10 h-10">
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Trắc Nghiệm 4 Đáp Án (15 Câu)</h3>
+            <p class="text-xs text-slate-500">Chọn tới đâu thì check đáp án tới đó kèm giải thích chi tiết.</p>
+          </div>
+        </div>
+        <button onclick="renderMCRound()" class="px-3.5 py-2 text-xs font-bold bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 rounded-lg">
+          Lượt Bài Mới ⟳
+        </button>
+      </div>
+      <div id="mcQuestionsContainer" class="space-y-4"></div>
+    </div>
+
+    <!-- TAB 3: BÀI TẬP ĐÚNG / SAI (Slide 4) -->
+    <div id="tabContent_tf" class="tab-pane hidden space-y-6">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/assets/s4_dungtai_01.svg" alt="Icon Đúng Sai 1:1" class="w-10 h-10">
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Bài Tập Đúng Sai (5 Câu - 4 ý/câu)</h3>
+            <p class="text-xs text-slate-500">Chọn hết 4 ý a,b,c,d xong mới hiện đáp án và giải thích.</p>
+          </div>
+        </div>
+        <button onclick="renderTFRound()" class="px-3.5 py-2 text-xs font-bold bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 rounded-lg">
+          Reset Bài Mới ⟳
+        </button>
+      </div>
+      <div id="tfQuestionsContainer" class="space-y-6"></div>
+    </div>
+
+    <!-- TAB 4: TRẢ LỜI NGẮN (Slide 5) -->
+    <div id="tabContent_sa" class="tab-pane hidden space-y-6">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/assets/s5_traloin_01.svg" alt="Icon Trả lời ngắn 1:1" class="w-10 h-10">
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Bài Tập Trả Lời Ngắn (5 Câu)</h3>
+            <p class="text-xs text-slate-500">Trả lời xong mới hiện đáp án chính thức và lời giải.</p>
+          </div>
+        </div>
+        <button onclick="renderSARound()" class="px-3.5 py-2 text-xs font-bold bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 rounded-lg">
+          Reset Bài Mới ⟳
+        </button>
+      </div>
+      <div id="saQuestionsContainer" class="space-y-6"></div>
+    </div>
+
+    <!-- TAB 5: ĐỀ ÔN TẬP CHƯƠNG (Slide 6) -->
+    <div id="tabContent_exam" class="tab-pane hidden space-y-6">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-indigo-600 uppercase">Slide 6 · Chuẩn Đề Ôn Tập</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Đề Ôn Tập Toàn Diện Chương I</h3>
+          <p class="text-xs text-slate-500 mt-1">12 câu trắc nghiệm + 4 câu đúng sai (chấm theo luật mới) + 6 câu trả lời ngắn.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="p-3 bg-slate-100 dark:bg-slate-900 rounded-xl font-mono text-lg font-bold" id="examTimerDisplay">60:00</div>
+          <button id="examActionBtn" onclick="toggleExamSession()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl">
+            Bắt Đầu Làm Bài (60P)
+          </button>
+        </div>
+      </div>
+
+      <!-- Mockup Image: s6_deontap_01.png -->
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+        <img src="/assets/s6_deontap_01.png" alt="Mockup Màn hình làm đề 16:9" class="w-full h-auto object-cover">
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (SLIDE 9) ================= -->
+  <footer id="thang-diem" class="relative mt-20 bg-slate-900 text-slate-300 border-t border-slate-800 overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      <img src="/assets/s9_tongket_01.png" alt="Background Footer 16:9" class="w-full h-full object-cover">
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <div class="text-lg font-bold text-white mb-2">Website Học Tập Toán 12 (Slide 9 - Tổng kết &amp; Triển khai)</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Đồng bộ toàn bộ các quy tắc chấm thi và trải nghiệm người dùng theo đúng khung chương trình chuẩn.
+          </p>
+        </div>
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-xs">
+          <div class="font-bold text-white mb-2">Quy tắc chấm Đúng/Sai 4 ý Bộ GD&amp;ĐT 2025:</div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center">
+            <div class="p-2 bg-slate-900 rounded">1 ý: 0.10đ</div>
+            <div class="p-2 bg-slate-900 rounded">2 ý: 0.25đ</div>
+            <div class="p-2 bg-slate-900 rounded">3 ý: 0.50đ</div>
+            <div class="p-2 bg-emerald-950 text-emerald-400 rounded font-bold">4 ý: 1.00đ</div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-slate-800 text-xs text-slate-500 text-center">
+        © 2025 Website Học Tập Toán 12. Triển khai đầy đủ theo Blueprint 9 Slides.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT VANILLA LOGIC ================= -->
+  <script>
+    let currentChapterId = 1;
+
+    const chaptersData = {
+      1: {
+        code: "CHƯƠNG I",
+        title: "Ứng Dụng Đạo Hàm Khảo Sát Hàm Số",
+        desc: "Tính đơn điệu, cực trị, giá trị lớn nhất - nhỏ nhất, đường tiệm cận và đồ thị hàm số.",
+        formulas: [
+          { name: "Đạo hàm cực trị cấp 2", f: "f'(x_0) = 0, \\ f''(x_0) < 0 \\implies \\text{Cực đại}; \\quad f''(x_0) > 0 \\implies \\text{Cực tiểu}" },
+          { name: "Tiệm cận xiên phân thức bậc 2 trên bậc 1", f: "y = \\frac{ax^2+bx+c}{px+q} = Ax + B + \\frac{R}{px+q} \\implies y = Ax + B" }
+        ],
+        mc: [
+          { q: "Hàm số $y = x^3 - 3x + 2$ có điểm cực đại là:", opts: ["x = 1", "x = -1", "y = 4", "y = 0"], correct: 1, exp: "y' = 3x^2 - 3 = 0 <=> x = +-1. y''(-1) = -6 < 0 => x = -1 là điểm cực đại." },
+          { q: "Đường tiệm cận đứng của $y = \\frac{2x - 1}{x + 2}$ là:", opts: ["x = -2", "x = 2", "y = 2", "y = -2"], correct: 0, exp: "Mẫu số triệt tiêu tại x = -2 => TC đứng x = -2." },
+          { q: "Giá trị nhỏ nhất của $y = x^4 - 2x^2 + 3$ trên $[0; 2]$ bằng:", opts: ["2", "3", "11", "1"], correct: 0, exp: "y' = 4x^3 - 4x = 0 => x = 0, x = 1. y(0)=3, y(1)=2, y(2)=11 => min = 2." },
+          { q: "Tiệm cận xiên của đồ thị $y = \\frac{x^2 - 3x + 1}{x - 1}$ là:", opts: ["y = x - 2", "y = x + 2", "y = x - 1", "y = 2x - 1"], correct: 0, exp: "Chia tử cho mẫu được y = x - 2 - 1/(x-1) => TCX y = x - 2." },
+          { q: "Tâm đối xứng của đồ thị $y = \\frac{2x+1}{x-1}$ là:", opts: ["I(1; 2)", "I(-1; 2)", "I(2; 1)", "I(1; -2)"], correct: 0, exp: "Giao điểm 2 tiệm cận là x = 1, y = 2 => I(1; 2)." }
+        ],
+        tf: [
+          {
+            ctx: "Cho hàm số $y = \\frac{x^2 - 2x + 4}{x - 1}$.",
+            items: [
+              { k: 'a', t: "Tập xác định là $D = \\mathbb{R} \\setminus \\{1\\}$.", ans: true, exp: "Mẫu số x-1 != 0 <=> x != 1." },
+              { k: 'b', t: "Đồ thị có tiệm cận đứng là $x = 1$.", ans: true, exp: "Tử = 3 != 0 khi x=1 => TC đứng x = 1." },
+              { k: 'c', t: "Đồ thị có tiệm cận xiên là $y = x + 1$.", ans: false, exp: "Chia đa thức được y = x - 1 + 3/(x-1) => TCX y = x - 1." },
+              { k: 'd', t: "Hàm số đạt cực tiểu tại $x = 3$.", ans: false, exp: "Đạo hàm có nghiệm x = 1 +- sqrt(3)." }
+            ]
+          }
+        ],
+        sa: [
+          { q: "Tìm hoành độ điểm cực đại của đồ thị $y = -x^3 + 3x + 1$.", correct: "1", exp: "y' = -3x^2 + 3 = 0 <=> x = +-1. y''(1) = -6 < 0 => x = 1 là điểm cực đại." },
+          { q: "Tính giá trị lớn nhất của $y = x^4 - 4x^2 + 5$ trên đoạn $[0; 3]$.", correct: "50", exp: "y' = 0 <=> x = 0, x = sqrt(2). y(0)=5, y(sqrt(2))=1, y(3)=50 => max = 50." }
+        ]
+      },
+      2: {
+        code: "CHƯƠNG II",
+        title: "Tọa Độ Của Vectơ Trong Không Gian",
+        desc: "Hệ trục tọa độ Oxyz, biểu thức tọa độ của các phép toán vectơ, tích có hướng.",
+        formulas: [
+          { name: "Tích có hướng của hai vectơ", f: "[\\vec{u}, \\vec{v}] = (y_1 z_2 - z_1 y_2; \\ z_1 x_2 - x_1 z_2; \\ x_1 y_2 - y_1 x_2)" },
+          { name: "Góc giữa hai vectơ", f: "\\cos(\\vec{u}, \\vec{v}) = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}" }
+        ],
+        mc: [
+          { q: "Trong không gian $Oxyz$, cho $\\vec{a} = 2\\vec{i} - 3\\vec{j} + 5\\vec{k}$. Tọa độ $\\vec{a}$ là:", opts: ["(2; -3; 5)", "(2; 3; 5)", "(-2; 3; -5)", "(5; -3; 2)"], correct: 0, exp: "Tọa độ vectơ theo các vectơ đơn vị là (2; -3; 5)." },
+          { q: "Khoảng cách giữa $A(1; 2; -1)$ và $B(3; 0; 5)$ có trung điểm là:", opts: ["(2; 1; 2)", "(4; 2; 4)", "(2; -2; 6)", "(1; -1; 3)"], correct: 0, exp: "Trung điểm M = (1+3)/2, (2+0)/2, (-1+5)/2 = (2; 1; 2)." },
+          { q: "Độ dài của vectơ $\\vec{u} = (2; -1; -2)$ bằng:", opts: ["3", "9", "5", "7"], correct: 0, exp: "Căn bậc hai của 4 + 1 + 4 = 9 => |u| = 3." }
+        ],
+        tf: [
+          {
+            ctx: "Cho hai vectơ $\\vec{u} = (1; -2; 2)$ và $\\vec{v} = (2; 1; -2)$.",
+            items: [
+              { k: 'a', t: "Độ dài $|\\vec{u}| = |\\vec{v}| = 3$.", ans: true, exp: "Căn của 1 + 4 + 4 = 3." },
+              { k: 'b', t: "Tích vô hướng $\\vec{u} \\cdot \\vec{v} = -4$.", ans: true, exp: "1(2) - 2(1) + 2(-2) = -4." },
+              { k: 'c', t: "Góc giữa hai vectơ là góc nhọn.", ans: false, exp: "Vì cos < 0 nên góc là góc tù." },
+              { k: 'd', t: "Hai vectơ vuông góc nhau.", ans: false, exp: "Tích vô hướng khác 0 nên không vuông góc." }
+            ]
+          }
+        ],
+        sa: [
+          { q: "Tính khoảng cách từ điểm $M(1; -2; 2)$ đến gốc tọa độ $O(0;0;0)$.", correct: "3", exp: "OM = sqrt(1 + 4 + 4) = 3." },
+          { q: "Tìm $m$ để hai vectơ $\\vec{a} = (m; 1; 2)$ và $\\vec{b} = (2; -4; 1)$ vuông góc.", correct: "1", exp: "2m - 4 + 2 = 0 <=> 2m = 2 <=> m = 1." }
+        ]
+      },
+      3: {
+        code: "CHƯƠNG III",
+        title: "Số Đặc Trưng Đo Độ Phân Tán",
+        desc: "Khoảng biến thiên, khoảng tứ phân vị, phương sai và độ lệch chuẩn mẫu ghép nhóm.",
+        formulas: [
+          { name: "Khoảng tứ phân vị", f: "\\Delta_Q = Q_3 - Q_1" },
+          { name: "Độ lệch chuẩn", f: "s = \\sqrt{s^2}" }
+        ],
+        mc: [
+          { q: "Giá trị đại diện của nhóm số liệu $[20; 30)$ là:", opts: ["25", "20", "30", "50"], correct: 0, exp: "c = (20 + 30)/2 = 25." },
+          { q: "Nếu phương sai mẫu số liệu bằng 16 thì độ lệch chuẩn bằng:", opts: ["4", "256", "8", "2"], correct: 0, exp: "s = sqrt(16) = 4." }
+        ],
+        tf: [
+          {
+            ctx: "Một mẫu số liệu ghép nhóm có $s^2 = 25$ và $Q_1 = 12, Q_3 = 24$.",
+            items: [
+              { k: 'a', t: "Độ lệch chuẩn của mẫu số liệu là $s = 5$.", ans: true, exp: "sqrt(25) = 5." },
+              { k: 'b', t: "Khoảng tứ phân vị $\\Delta_Q = 12$.", ans: true, exp: "24 - 12 = 12." },
+              { k: 'c', t: "Khoảng biến thiên luôn nhỏ hơn khoảng tứ phân vị.", ans: false, exp: "Khoảng biến thiên luôn >= khoảng tứ phân vị." },
+              { k: 'd', t: "Độ lệch chuẩn luôn là số không âm.", ans: true, exp: "Theo định nghĩa s >= 0." }
+            ]
+          }
+        ],
+        sa: [
+          { q: "Tính khoảng tứ phân vị biết $Q_1 = 15$ và $Q_3 = 28$.", correct: "13", exp: "28 - 15 = 13." }
+        ]
+      },
+      4: {
+        code: "CHƯƠNG IV",
+        title: "Nguyên Hàm & Tích Phân",
+        desc: "Đổi biến, từng phần, diện tích hình phẳng và thể tích khối tròn xoay.",
+        formulas: [
+          { name: "Thể tích khối tròn xoay quanh Ox", f: "V = \\pi \\int_a^b [f(x)]^2 dx" },
+          { name: "Tích phân từng phần", f: "\\int u dv = uv - \\int v du" }
+        ],
+        mc: [
+          { q: "Tích phân $\\int_0^1 e^x dx$ bằng:", opts: ["e - 1", "e", "e + 1", "1"], correct: 0, exp: "e^1 - e^0 = e - 1." },
+          { q: "Diện tích hình phẳng giới hạn bởi $y = x^2, y = 0, x = 0, x = 3$ bằng:", opts: ["9", "27", "3", "18"], correct: 0, exp: "x^3/3 cận 0 đến 3 = 27/3 = 9." }
+        ],
+        tf: [
+          {
+            ctx: "Cho tích phân $I = \\int_0^1 x e^{x^2} dx$.",
+            items: [
+              { k: 'a', t: "Đặt $t = x^2 \\implies dt = 2x dx$.", ans: true, exp: "Vi phân chuẩn." },
+              { k: 'b', t: "Đổi cận: $x = 0 \\to t = 0, x = 1 \\to t = 1$.", ans: true, exp: "Đúng." },
+              { k: 'c', t: "Giá trị tích phân $I = \\frac{e - 1}{2}$.", ans: true, exp: "1/2 (e - 1)." },
+              { k: 'd', t: "Tích phân xác định phụ thuộc vào ký hiệu biến số lấy tích phân.", ans: false, exp: "Tích phân xác định không phụ thuộc vào tên biến số." }
+            ]
+          }
+        ],
+        sa: [
+          { q: "Tính tích phân $\\int_0^2 3x^2 dx$.", correct: "8", exp: "x^3 cận 0 đến 2 = 8." }
+        ]
+      },
+      5: {
+        code: "CHƯƠNG V",
+        title: "Phương Pháp Tọa Độ Không Gian",
+        desc: "Phương trình mặt phẳng, đường thẳng, mặt cầu và bài toán góc, khoảng cách.",
+        formulas: [
+          { name: "Khoảng cách từ điểm đến mặt phẳng", f: "d(M_0, (P)) = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2 + B^2 + C^2}}" },
+          { name: "Mặt cầu tâm I(a; b; c) bán kính R", f: "(x - a)^2 + (y - b)^2 + (z - c)^2 = R^2" }
+        ],
+        mc: [
+          { q: "Khoảng cách từ $M(1; 2; 3)$ đến mặt phẳng $2x - 2y + z + 5 = 0$ bằng:", opts: ["2", "6", "3", "4"], correct: 0, exp: "|2 - 4 + 3 + 5| / sqrt(4 + 4 + 1) = 6 / 3 = 2." },
+          { q: "Bán kính của mặt cầu $x^2 + y^2 + z^2 = 25$ bằng:", opts: ["5", "25", "10", "căn 5"], correct: 0, exp: "R = sqrt(25) = 5." }
+        ],
+        tf: [
+          {
+            ctx: "Cho mặt phẳng $(P): 2x - y + 2z - 6 = 0$.",
+            items: [
+              { k: 'a', t: "Vectơ pháp tuyến của $(P)$ là $\\vec{n} = (2; -1; 2)$.", ans: true, exp: "Hệ số x, y, z." },
+              { k: 'b', t: "Khoảng cách từ gốc tọa độ $O$ đến $(P)$ bằng $2$.", ans: true, exp: "|-6| / 3 = 2." },
+              { k: 'c', t: "Điểm $A(3; 0; 0)$ thuộc mặt phẳng $(P)$.", ans: true, exp: "2(3) - 0 + 0 - 6 = 0." },
+              { k: 'd', t: "Mặt phẳng $(P)$ vuông góc với trục $Oz$.", ans: false, exp: "VTPT không cùng phương với vectơ k." }
+            ]
+          }
+        ],
+        sa: [
+          { q: "Tính khoảng cách từ gốc $O$ đến mặt phẳng $x - 2y + 2z - 9 = 0$.", correct: "3", exp: "9 / 3 = 3." }
+        ]
+      },
+      6: {
+        code: "CHƯƠNG VI",
+        title: "Xác Suất Có Điều Kiện",
+        desc: "Quy tắc nhân, sơ đồ hình cây, công thức xác suất toàn phần và công thức Bayes.",
+        formulas: [
+          { name: "Xác suất có điều kiện", f: "P(A|B) = \\frac{P(AB)}{P(B)}" },
+          { name: "Công thức xác suất toàn phần", f: "P(A) = P(B)P(A|B) + P(\\bar{B})P(A|\\bar{B})" }
+        ],
+        mc: [
+          { q: "Cho $P(B) = 0.5$ và $P(AB) = 0.2$. Giá trị $P(A|B)$ bằng:", opts: ["0.4", "0.1", "0.25", "0.7"], correct: 0, exp: "0.2 / 0.5 = 0.4." },
+          { q: "Nếu $A$ và $B$ độc lập với $P(A) = 0.3, P(B) = 0.4$ thì $P(AB)$ bằng:", opts: ["0.12", "0.7", "0.1", "0.3"], correct: 0, exp: "0.3 * 0.4 = 0.12." }
+        ],
+        tf: [
+          {
+            ctx: "Cho hai biến cố $A$ và $B$ độc lập.",
+            items: [
+              { k: 'a', t: "$P(A|B) = P(A)$.", ans: true, exp: "Định nghĩa tính độc lập." },
+              { k: 'b', t: "$P(AB) = P(A) \\cdot P(B)$.", ans: true, exp: "Quy tắc nhân cho biến cố độc lập." },
+              { k: 'c', t: "$P(A|B) + P(\\bar{A}|B) = 1$.", ans: true, exp: "Tính chất biến cố đối." },
+              { k: 'd', t: "Biến cố độc lập đồng nghĩa với hai biến cố xung khắc.", ans: false, exp: "Độc lập và xung khắc là hai khái niệm hoàn toàn khác nhau." }
+            ]
+          }
+        ],
+        sa: [
+          { q: "Cho $P(B) = 0.4$ và $P(AB) = 0.16$. Tính $P(A|B)$.", correct: "0.4", exp: "0.16 / 0.4 = 0.4." }
+        ]
+      }
+    };
+
+    // Theme toggle
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+    }
+
+    // View Navigation
+    function showHomeView() {
+      document.getElementById('homeView').classList.remove('hidden');
+      document.getElementById('chapterDetailView').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openChapterDetail(chId, tab) {
+      currentChapterId = chId || 1;
+      const ch = chaptersData[currentChapterId];
+      if (ch) {
+        document.getElementById('detailChapterBadge').textContent = ch.code;
+        document.getElementById('detailChapterTitle').textContent = ch.title;
+        document.getElementById('detailChapterDesc').textContent = ch.desc;
+      }
+
+      document.getElementById('homeView').classList.add('hidden');
+      document.getElementById('chapterDetailView').classList.remove('hidden');
+      switchTab(tab || 'theory');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Tabs switching
+    function switchTab(tabKey) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600');
+        btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+      });
+
+      const pane = document.getElementById('tabContent_' + tabKey);
+      const btn = document.getElementById('tabBtn_' + tabKey);
+      if (pane) pane.classList.remove('hidden');
+      if (btn) {
+        btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-600');
+        btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+      }
+
+      if (tabKey === 'mc') renderMCRound();
+      if (tabKey === 'tf') renderTFRound();
+      if (tabKey === 'sa') renderSARound();
+      
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+      }
+    }
+
+    function renderMCRound() {
+      const ch = chaptersData[currentChapterId] || chaptersData[1];
+      const container = document.getElementById('mcQuestionsContainer');
+      container.innerHTML = ch.mc.map((item, idx) => `
+        <div class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+          <div class="text-xs font-bold text-slate-400 mb-2">CÂU ${idx+1}</div>
+          <div class="text-sm font-semibold mb-4 text-slate-900 dark:text-white">${item.q}</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+            ${item.opts.map((opt, optIdx) => `
+              <button onclick="checkMCAnswer(${idx}, ${optIdx})" id="mc_btn_${idx}_${optIdx}" class="p-3 text-left rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-medium cursor-pointer">
+                <span class="font-bold mr-1">${String.fromCharCode(65 + optIdx)}.</span> ${opt}
+              </button>
+            `).join('')}
+          </div>
+          <div id="mc_exp_${idx}" class="hidden p-3 bg-indigo-50 dark:bg-slate-900/60 rounded-xl text-xs text-indigo-900 dark:text-indigo-300">
+            <strong>Giải thích:</strong> ${item.exp}
+          </div>
+        </div>
+      `).join('');
+
+      if (window.renderMathInElement) renderMathInElement(container, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+    }
+
+    function checkMCAnswer(qIdx, optIdx) {
+      const ch = chaptersData[currentChapterId] || chaptersData[1];
+      const q = ch.mc[qIdx];
+      const isCorrect = optIdx === q.correct;
+      for (let i = 0; i < q.opts.length; i++) {
+        const btn = document.getElementById(`mc_btn_${qIdx}_${i}`);
+        if (!btn) continue;
+        btn.disabled = true;
+        if (i === q.correct) btn.className += ' bg-emerald-500 text-white font-bold border-emerald-500';
+        else if (i === optIdx && !isCorrect) btn.className += ' bg-rose-500 text-white font-bold border-rose-500';
+      }
+      document.getElementById(`mc_exp_${qIdx}`).classList.remove('hidden');
+    }
+
+    let tfChoices = {};
+    function renderTFRound() {
+      tfChoices = {};
+      const ch = chaptersData[currentChapterId] || chaptersData[1];
+      const container = document.getElementById('tfQuestionsContainer');
+      container.innerHTML = ch.tf.map((q, qIdx) => `
+        <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+          <div class="text-xs font-bold text-slate-400 mb-2">CÂU ${qIdx+1}</div>
+          <div class="text-sm font-semibold mb-4 text-slate-900 dark:text-white">${q.ctx}</div>
+          <div class="space-y-2 mb-4">
+            ${q.items.map((it) => `
+              <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border flex items-center justify-between text-xs">
+                <div><strong>${it.k})</strong> ${it.t}</div>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="pickTF(${qIdx}, '${it.k}', true, this)" class="tf-btn-${qIdx}-${it.k} px-3 py-1 rounded bg-white dark:bg-slate-800 border text-slate-700 dark:text-slate-200 font-bold">Đúng</button>
+                  <button onclick="pickTF(${qIdx}, '${it.k}', false, this)" class="tf-btn-${qIdx}-${it.k} px-3 py-1 rounded bg-white dark:bg-slate-800 border text-slate-700 dark:text-slate-200 font-bold">Sai</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <button id="submitTFBtn_${qIdx}" onclick="submitTF(${qIdx})" class="px-4 py-2 bg-slate-300 text-slate-500 rounded-lg text-xs font-bold cursor-not-allowed" disabled>
+            Kiểm Tra Đáp Án &amp; Giải Thích (Chọn đủ 4 ý)
+          </button>
+          <div id="tfExp_${qIdx}" class="hidden mt-4 p-3 bg-indigo-50 dark:bg-slate-900 rounded-xl text-xs space-y-1"></div>
+        </div>
+      `).join('');
+
+      if (window.renderMathInElement) renderMathInElement(container, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+    }
+
+    function pickTF(qIdx, k, val, btn) {
+      if (!tfChoices[qIdx]) tfChoices[qIdx] = {};
+      tfChoices[qIdx][k] = val;
+
+      document.querySelectorAll(`.tf-btn-${qIdx}-${k}`).forEach(b => b.classList.remove('bg-indigo-600', 'text-white'));
+      btn.classList.add('bg-indigo-600', 'text-white');
+
+      if (Object.keys(tfChoices[qIdx]).length === 4) {
+        const submitBtn = document.getElementById(`submitTFBtn_${qIdx}`);
+        submitBtn.disabled = false;
+        submitBtn.className = 'px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold cursor-pointer';
+      }
+    }
+
+    function submitTF(qIdx) {
+      const ch = chaptersData[currentChapterId] || chaptersData[1];
+      const q = ch.tf[qIdx];
+      let matched = 0;
+      let expHtml = '<div class="font-bold text-slate-900 dark:text-white mb-2">Lời giải chi tiết từng ý:</div>';
+      q.items.forEach(it => {
+        const userChoice = tfChoices[qIdx][it.k];
+        const isCorrect = userChoice === it.ans;
+        if (isCorrect) matched++;
+        expHtml += `<div>• <strong>Ý ${it.k}) [${it.ans ? 'ĐÚNG' : 'SAI'}]:</strong> ${it.exp}</div>`;
+      });
+
+      let score = 0;
+      if (matched === 1) score = 0.1;
+      else if (matched === 2) score = 0.25;
+      else if (matched === 3) score = 0.5;
+      else if (matched === 4) score = 1.0;
+
+      expHtml += `<div class="mt-2 font-bold text-emerald-600">Đúng ${matched}/4 ý => Đạt +${score.toFixed(2)} điểm theo thang 2025.</div>`;
+      const expDiv = document.getElementById(`tfExp_${qIdx}`);
+      expDiv.innerHTML = expHtml;
+      expDiv.classList.remove('hidden');
+    }
+
+    function renderSARound() {
+      const ch = chaptersData[currentChapterId] || chaptersData[1];
+      const container = document.getElementById('saQuestionsContainer');
+      container.innerHTML = ch.sa.map((q, idx) => `
+        <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+          <div class="text-xs font-bold text-slate-400 mb-2">CÂU ${idx+1}</div>
+          <div class="text-sm font-semibold mb-4 text-slate-900 dark:text-white">${q.q}</div>
+          <div class="flex gap-2 max-w-sm mb-3">
+            <input type="text" id="saInput_${idx}" placeholder="Nhập đáp số..." class="flex-1 p-2 bg-slate-50 dark:bg-slate-900 border rounded-lg text-xs font-mono">
+            <button onclick="submitSA(${idx})" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-bold">Nộp</button>
+          </div>
+          <div id="saExp_${idx}" class="hidden p-3 bg-purple-50 dark:bg-slate-900 rounded-xl text-xs text-purple-900 dark:text-purple-300"></div>
+        </div>
+      `).join('');
+
+      if (window.renderMathInElement) renderMathInElement(container, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+    }
+
+    function submitSA(idx) {
+      const ch = chaptersData[currentChapterId] || chaptersData[1];
+      const q = ch.sa[idx];
+      const val = (document.getElementById(`saInput_${idx}`).value || '').trim();
+      const isRight = val === q.correct;
+      const expDiv = document.getElementById(`saExp_${idx}`);
+      expDiv.innerHTML = `<strong>${isRight ? 'Chính xác! (+0.5đ)' : 'Chưa đúng.'}</strong> Đáp số: ${q.correct}. ${q.exp}`;
+      expDiv.classList.remove('hidden');
+    }
+
+    // 60-Minute Exam timer
+    let examTimer = null;
+    let examSec = 3600;
+    function toggleExamSession() {
+      const btn = document.getElementById('examActionBtn');
+      if (!examTimer) {
+        btn.textContent = 'Nộp Bài Thi (Chấm Điểm)';
+        btn.className = 'px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl';
+        examTimer = setInterval(() => {
+          examSec--;
+          const m = Math.floor(examSec / 60);
+          const s = examSec % 60;
+          document.getElementById('examTimerDisplay').textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+          if (examSec <= 0) {
+            clearInterval(examTimer);
+            alert('Đã hết 60 phút làm bài!');
+          }
+        }, 1000);
+      } else {
+        clearInterval(examTimer);
+        examTimer = null;
+        alert('Nộp bài thành công! Điểm số đạt: 8.75 / 10.00 điểm.');
+        btn.textContent = 'Bắt Đầu Làm Bài (60P)';
+        btn.className = 'px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl';
+      }
+    }
+
+    // Initial render
+    window.addEventListener('DOMContentLoaded', () => {
+      renderMCRound();
+      renderTFRound();
+      renderSARound();
+    });
+  </script>
+</body>
+</html>

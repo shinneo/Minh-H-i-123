@@ -1,0 +1,6 @@
+{
+  "name": "Toán 12 - Ôn Tập & Luyện Đề Chuẩn 2025",
+  "description": "Website học tập Toán 12 theo chương trình GDPT mới: Củng cố lý thuyết, Trắc nghiệm 4 đáp án, Trắc nghiệm Đúng/Sai, Trả lời ngắn và Đề thi 60 phút có chấm điểm chi tiết.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

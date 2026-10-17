@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hero-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+    <radialGradient id="hero-glow" cx="60%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="curve-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#hero-bg)" />
+  <rect width="1200" height="675" fill="url(#grid)" />
+  <rect width="1200" height="675" fill="url(#hero-glow)" />
+
+  <!-- 3D Oxyz coordinate space -->
+  <g transform="translate(680, 420) scale(1.1)">
+    <!-- Axes -->
+    <line x1="0" y1="0" x2="360" y2="0" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6,4" />
+    <polygon points="365,0 350,-6 350,6" fill="#38bdf8" />
+    <text x="375" y="5" fill="#38bdf8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="16">x</text>
+
+    <line x1="0" y1="0" x2="-140" y2="140" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="6,4" />
+    <polygon points="-145,145 -133,136 -139,126" fill="#a855f7" />
+    <text x="-165" y="155" fill="#a855f7" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="16">y</text>
+
+    <line x1="0" y1="0" x2="0" y2="-280" stroke="#f43f5e" stroke-width="2.5" />
+    <polygon points="0,-285 -6,-270 6,-270" fill="#f43f5e" />
+    <text x="-5" y="-295" fill="#f43f5e" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="16">z</text>
+
+    <!-- Vector u and plane representation -->
+    <path d="M -80,60 L 220,-40 L 300,100 L 0,200 Z" fill="rgba(99, 102, 241, 0.12)" stroke="#6366f1" stroke-width="1.5" />
+    <line x1="0" y1="0" x2="160" y2="-120" stroke="#fbbf24" stroke-width="3" />
+    <polygon points="165,-124 150,-128 156,-115" fill="#fbbf24" />
+    <text x="175" y="-130" fill="#fbbf24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="18">n⃗ = (A; B; C)</text>
+  </g>
+
+  <!-- Calculus curve -->
+  <path d="M 50,480 Q 220,120 420,380 T 820,240 T 1150,150" fill="none" stroke="url(#curve-grad)" stroke-width="4.5" filter="drop-shadow(0 0 12px rgba(99, 102, 241, 0.7))" />
+
+  <!-- Math Symbols Float -->
+  <text x="120" y="160" fill="rgba(255,255,255,0.25)" font-family="serif" font-size="72" font-style="italic">∫</text>
+  <text x="155" y="145" fill="rgba(255,255,255,0.2)" font-family="serif" font-size="28">b</text>
+  <text x="145" y="185" fill="rgba(255,255,255,0.2)" font-family="serif" font-size="28">a</text>
+  <text x="180" y="160" fill="rgba(255,255,255,0.25)" font-family="'Plus Jakarta Sans', sans-serif" font-size="34">f(x)dx</text>
+
+  <text x="100" y="320" fill="rgba(56, 189, 248, 0.25)" font-family="'Plus Jakarta Sans', sans-serif" font-size="32" font-weight="bold">lim f(x) = L</text>
+  <text x="960" y="520" fill="rgba(244, 63, 94, 0.25)" font-family="'Plus Jakarta Sans', sans-serif" font-size="36" font-weight="bold">P(A|B)</text>
+</svg>

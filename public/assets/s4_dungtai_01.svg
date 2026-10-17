@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <rect width="100" height="100" rx="24" fill="#10b981" />
+  <g transform="translate(18, 25)">
+    <!-- Checkmark badge (Đúng) -->
+    <circle cx="20" cy="25" r="18" fill="#ffffff" />
+    <path d="M12 25 L18 31 L29 18" fill="none" stroke="#10b981" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Cross badge (Sai) -->
+    <circle cx="48" cy="25" r="18" fill="rgba(255,255,255,0.25)" />
+    <path d="M41 18 L55 32 M55 18 L41 32" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
